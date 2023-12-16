@@ -1,7 +1,10 @@
+import { useParams } from "react-router-dom";
+
 const Script = () => {
+    let { script } = useParams();
     return (
         <div>
-            Script
+            Script - {script}
         </div>
     );
 }

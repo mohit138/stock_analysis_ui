@@ -1,21 +1,24 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PrimaryButton from "../common/PrimaryButton";
 import PrimaryCloseButton from "../common/PrimaryCloseButton";
-import { StockListContext } from "../../contexts/StockListContext";
-import { ADD_STOCK } from "../../constants/constants";
 import { Input } from "../common/Inputs";
+import PropTypes from 'prop-types';
 
-function List({ data, selectStockHandler }) {
-    data.splice(20);
+function List({ stock, selectStockHandler }) {
+    stock.splice(20);
     return (
         <ul>
-            {data.map((item) => (
-                <li className="px-2 border rounded-sm cursor-default" onClick={()=>selectStockHandler(item)}>{item.tradingSymbol} | {item.name}</li>
+            {stock.map((item) => (
+                <li key={item.name} className="px-2 border rounded-sm cursor-default" onClick={()=>selectStockHandler(item)}>{item.tradingSymbol} | {item.name}</li>
             ))}
         </ul>
     )
 }
 
+List.propTypes = {
+    stock: PropTypes.array,
+    selectStockHandler: PropTypes.func.isRequired
+}
 
 const AddStockModal = ({ handleModalToggle, handleAddStock }) => {
     
@@ -70,7 +73,7 @@ const AddStockModal = ({ handleModalToggle, handleAddStock }) => {
                     <div className="py-4">Please search for the Stock</div>
                     <Input value={searchInput} onChange={(e) => searchHandler(e.target.value)}/>
                     {isResultsVisible && <div className="h-40 w-full rounded-md border-gray-400 overflow-auto">
-                        <List data={searchResult} selectStockHandler={selectStockHandler}/>
+                        <List stock={searchResult} selectStockHandler={selectStockHandler}/>
                     </div>}
                     { !isResultsVisible && <div className="h-40 w-full py-4">Selected Stock - {selectedStock.name}</div>}
                 </div>
@@ -84,6 +87,11 @@ const AddStockModal = ({ handleModalToggle, handleAddStock }) => {
 
         </div>
     );
+}
+
+AddStockModal.propTypes = {
+    handleModalToggle: PropTypes.func.isRequired, 
+    handleAddStock: PropTypes.func.isRequired
 }
 
 export default AddStockModal;

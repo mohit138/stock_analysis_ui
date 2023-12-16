@@ -15,6 +15,7 @@ export const stockListReducer = (state, action) => {
             }
         }
         case REMOVE_STOCK: {
+            // eslint-disable-next-line no-unused-vars
             const { [action.data.name]: deletedStock , ...newState} = state;
             return newState;
         }

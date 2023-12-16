@@ -1,21 +1,37 @@
 import { intervalMapping } from "../../constants/constants";
+import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
-const ListItem = ({ 
+const ListItem = ({
     stock,
     handleEditModalOpen,
     handleRemoveStock
- }) => {
+}) => {
     return (
-        <div className="w-full bg-white p-2 rounded my-2 grid grid-cols-4 md:grid-cols-5 xl:text-lg border border-gray-200 hover:border-cyan-200 cursor-pointer ease-in-out duration-200" onClick={()=>{console.log("Click on stock")}}>
-            <div className="hidden pl-4 pr-8 md:block">{stock.tradingSymbol}</div>
-            <div className="px-8 col-span-2">{stock.name}</div>
-            <div className="px-8 ">{intervalMapping[stock.interval]}</div>
-            <div className="flex items-center justify-around">
-                <button onClick={()=>handleEditModalOpen(stock)}><img className="h-5 xl:h-6" src="/assets/edit.png"/></button>
-                <button onClick={()=>handleRemoveStock(stock)}><img className="h-4 xl:h-5" src="/assets/close.png" /></button>
+        <div className="w-full bg-white p-2 rounded my-2 grid grid-cols-8 md:grid-cols-12 xl:text-lg border border-gray-300 ">
+            <Link className="flex items-center justify-around " to={stock.instrumentKey}>
+                <img className="h-7 xl:h-8 p-[0.2rem] border border-gray-100 hover:border-teal-300 cursor-pointer ease-in-out duration-200" src="/assets/candle.png" />
+            </Link>
+            <div className="hidden pl-4 pr-8 col-span-2 md:flex items-center">{stock.tradingSymbol}</div>
+            <div className="px-4 sm:px-8 col-span-5 sm:col-span-4 md:col-span-5 flex items-center ">{stock.name}</div>
+            <div className="hidden px-8 col-span-2 md:col-span-3 sm:flex items-center">{intervalMapping[stock.interval]}</div>
+            <div className="flex items-center justify-around col-span-2 sm:col-span-1">
+                <button onClick={() => handleEditModalOpen(stock)}><img className="h-7 xl:h-8 p-[0.2rem] border border-gray-100 hover:border-teal-300 cursor-pointer ease-in-out duration-200" src="/assets/edit.png" /></button>
+                <button onClick={() => handleRemoveStock(stock)}><img className="h-7 xl:h-8 p-[0.2rem] border border-gray-100 hover:border-teal-300 cursor-pointer ease-in-out duration-200" src="/assets/close.png" /></button>
             </div>
         </div>
     );
+}
+
+ListItem.propTypes = {
+    stock: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        instrumentKey: PropTypes.string.isRequired,
+        tradingSymbol: PropTypes.string.isRequired,
+        interval: PropTypes.string.isRequired
+    }),
+    handleEditModalOpen: PropTypes.func.isRequired,
+    handleRemoveStock: PropTypes.func.isRequired
 }
 
 export default ListItem;

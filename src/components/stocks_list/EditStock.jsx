@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { intervalMapping } from "../../constants/constants";
-import { DisabledInput, Input } from "../common/Inputs";
+import { DisabledInput } from "../common/Inputs";
 import PrimaryButton from "../common/PrimaryButton";
 import PrimaryCloseButton from "../common/PrimaryCloseButton";
-
+import PropTypes from 'prop-types';
 
 const SelectDropdown = ({ stock, updateLocalStockInterval }) => {
 
     const [selectedItem, setSelectedItem] = useState(stock?.interval);
-    const setInterval = (interval) =>{
+    const setInterval = (interval) => {
         setSelectedItem(interval);
         updateLocalStockInterval(interval);
     }
@@ -27,6 +27,16 @@ const SelectDropdown = ({ stock, updateLocalStockInterval }) => {
             {options}
         </select>
     );
+}
+
+SelectDropdown.propTypes = {
+    stock: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        instrumentKey: PropTypes.string.isRequired,
+        tradingSymbol: PropTypes.string.isRequired,
+        interval: PropTypes.string.isRequired
+    }),
+    updateLocalStockInterval: PropTypes.func.isRequired
 }
 
 
@@ -53,7 +63,7 @@ const EditStockModal = ({
                     <div className="pt-2 pb-2">Stock Trading Symbol</div>
                     <DisabledInput value={stock?.tradingSymbol} />
                     <div className="pt-2 pb-2">Interval</div>
-                    <SelectDropdown stock={stock} updateLocalStockInterval={updateLocalStockInterval}/>
+                    <SelectDropdown stock={stock} updateLocalStockInterval={updateLocalStockInterval} />
                 </div>
 
                 <div className="py-4">
@@ -65,6 +75,17 @@ const EditStockModal = ({
 
         </div>
     );
+}
+
+EditStockModal.propTypes = {
+    stock: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        instrumentKey: PropTypes.string.isRequired,
+        tradingSymbol: PropTypes.string.isRequired,
+        interval: PropTypes.string.isRequired
+    }),
+    handleEditStock: PropTypes.func.isRequired,
+    setOpenEditModal: PropTypes.func.isRequired
 }
 
 export default EditStockModal;
