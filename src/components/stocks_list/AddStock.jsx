@@ -78,7 +78,7 @@ const AddStockModal = ({ handleModalToggle, handleAddStock }) => {
                     { !isResultsVisible && <div className="h-40 w-full py-4">Selected Stock - {selectedStock.name}</div>}
                 </div>
                 
-                <div>
+                <div data-testid="add-modal-buttons">
                     <PrimaryButton onClickHandler={addSelectedStock} disabled={selectedStock===null?true:false} >Add</PrimaryButton>
                     <PrimaryCloseButton onClickHandler={handleModalToggle}>Close</PrimaryCloseButton>
                 </div>

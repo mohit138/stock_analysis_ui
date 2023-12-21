@@ -1,7 +1,7 @@
 import { Navigate, Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import Stocks from './Stocks';
 import StocksList from './stocks_list';
-import Script from './Script';
+import Script from './script';
 import { useContext, useEffect } from "react";
 import { StockListContext } from "../contexts/StockListContext";
 

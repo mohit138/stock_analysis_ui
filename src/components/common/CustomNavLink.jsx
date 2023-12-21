@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';  
 
-const CustomNavLink = ({ toRoute = "", children }) => {
+const CustomNavLink = ({ toRoute , children }) => {
     return (
         <NavLink
             className='p-3'
@@ -12,6 +12,10 @@ const CustomNavLink = ({ toRoute = "", children }) => {
             )}
         </NavLink>
     );
+}
+
+CustomNavLink.defaultProps = {
+    toRoute: ""
 }
 
 CustomNavLink.propTypes = {

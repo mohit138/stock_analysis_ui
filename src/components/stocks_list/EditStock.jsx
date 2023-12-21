@@ -20,7 +20,7 @@ const SelectDropdown = ({ stock, updateLocalStockInterval }) => {
     });
 
     return (
-        <select name="cars"
+        <select name="dropdown-component"
             value={selectedItem}
             onChange={e => setInterval(e.target.value)}
             className="border-2 rounded-md border-gray-700 w-full bg-white px-2 py-1 ">
@@ -53,7 +53,7 @@ const EditStockModal = ({
     }
 
     return (
-        <div className="absolute left-[15%] top-[20%] z-10 w-[70%] h-[60%] p-4 bg-white border-2 border-teal-600 sm:w-8/12">
+        <div data-testid="edit-modal" className="absolute left-[15%] top-[20%] z-10 w-[70%] h-[60%] p-4 bg-white border-2 border-teal-600 sm:w-8/12">
             <div className="flex flex-col items-start justify-around h-full">
                 <div className="flex flex-col items-start w-full">
                     <div className="pt-2 pb-2">Stock Name</div>

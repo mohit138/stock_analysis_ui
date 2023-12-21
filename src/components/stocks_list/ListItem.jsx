@@ -16,8 +16,8 @@ const ListItem = ({
             <div className="px-4 sm:px-8 col-span-5 sm:col-span-4 md:col-span-5 flex items-center ">{stock.name}</div>
             <div className="hidden px-8 col-span-2 md:col-span-3 sm:flex items-center">{intervalMapping[stock.interval]}</div>
             <div className="flex items-center justify-around col-span-2 sm:col-span-1">
-                <button onClick={() => handleEditModalOpen(stock)}><img className="h-7 xl:h-8 p-[0.2rem] border border-gray-100 hover:border-teal-300 cursor-pointer ease-in-out duration-200" src="/assets/edit.png" /></button>
-                <button onClick={() => handleRemoveStock(stock)}><img className="h-7 xl:h-8 p-[0.2rem] border border-gray-100 hover:border-teal-300 cursor-pointer ease-in-out duration-200" src="/assets/close.png" /></button>
+                <button data-testid="edit-button" onClick={() => handleEditModalOpen(stock)}><img className="h-7 xl:h-8 p-[0.2rem] border border-gray-100 hover:border-teal-300 cursor-pointer ease-in-out duration-200" src="/assets/edit.png" /></button>
+                <button data-testid="remove-button" onClick={() => handleRemoveStock(stock)}><img className="h-7 xl:h-8 p-[0.2rem] border border-gray-100 hover:border-teal-300 cursor-pointer ease-in-out duration-200" src="/assets/close.png" /></button>
             </div>
         </div>
     );
