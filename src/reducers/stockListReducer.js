@@ -11,13 +11,15 @@ export const stockListReducer = (state, action) => {
         case ADD_STOCK: {
             return {
                 ...state,
-                [action.data.name]: action.data
+                [action.data.tradingSymbol]: action.data
             }
         }
         case REMOVE_STOCK: {
             // eslint-disable-next-line no-unused-vars
-            const { [action.data.name]: deletedStock , ...newState} = state;
+            const { [action.data.tradingSymbol]: deletedStock , ...newState} = state;
             return newState;
         }
+        default:
+            return state;
     }
 }

@@ -1,44 +1,8 @@
-import { useState } from "react";
-import { intervalMapping } from "../../constants/constants";
 import { DisabledInput } from "../common/Inputs";
 import PrimaryButton from "../common/PrimaryButton";
 import PrimaryCloseButton from "../common/PrimaryCloseButton";
 import PropTypes from 'prop-types';
-
-const SelectDropdown = ({ stock, updateLocalStockInterval }) => {
-
-    const [selectedItem, setSelectedItem] = useState(stock?.interval);
-    const setInterval = (interval) => {
-        setSelectedItem(interval);
-        updateLocalStockInterval(interval);
-    }
-
-    const options = Object.keys(intervalMapping).map((intervalKey) => {
-        return (
-            <option key={intervalKey} value={intervalKey}>{intervalMapping[intervalKey]}</option>
-        );
-    });
-
-    return (
-        <select name="dropdown-component"
-            value={selectedItem}
-            onChange={e => setInterval(e.target.value)}
-            className="border-2 rounded-md border-gray-700 w-full bg-white px-2 py-1 ">
-            {options}
-        </select>
-    );
-}
-
-SelectDropdown.propTypes = {
-    stock: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        instrumentKey: PropTypes.string.isRequired,
-        tradingSymbol: PropTypes.string.isRequired,
-        interval: PropTypes.string.isRequired
-    }),
-    updateLocalStockInterval: PropTypes.func.isRequired
-}
-
+import IntervalSelectDropdown from "../common/IntervalSelectDropdown";
 
 const EditStockModal = ({
     stock,
@@ -63,7 +27,7 @@ const EditStockModal = ({
                     <div className="pt-2 pb-2">Stock Trading Symbol</div>
                     <DisabledInput value={stock?.tradingSymbol} />
                     <div className="pt-2 pb-2">Interval</div>
-                    <SelectDropdown stock={stock} updateLocalStockInterval={updateLocalStockInterval} />
+                    <IntervalSelectDropdown defaultInterval={stock?.interval} intervalUpdateHandler={updateLocalStockInterval} />
                 </div>
 
                 <div className="py-4">

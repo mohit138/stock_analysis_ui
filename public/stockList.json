@@ -1,29 +1,29 @@
 {
-    "AARTI PHARMALABS LIMITED": {
+    "AARTIPHARM": {
         "name": "AARTI PHARMALABS LIMITED",
         "instrumentKey": "NSE_EQ|INE0LRU01027",
         "tradingSymbol": "AARTIPHARM",
         "interval": "30minute"
     },
-    "TATA CONSULTANCY SERV LT": {
+    "TCS": {
         "name": "TATA CONSULTANCY SERV LT",
         "instrumentKey": "NSE_EQ|INE467B01029",
         "tradingSymbol": "TCS",
         "interval": "30minute"
     },
-    "ASIAN PAINTS LIMITED": {
+    "ASIANPAINT": {
         "name": "ASIAN PAINTS LIMITED",
         "instrumentKey": "NSE_EQ|INE021A01026",
         "tradingSymbol": "ASIANPAINT",
         "interval": "30minute"
     },
-    "LLOYDS ENGG WORK LIMITED": {
+    "LLOYDSENGG": {
         "name": "LLOYDS ENGG WORK LIMITED",
         "instrumentKey": "NSE_EQ|INE093R01011",
         "tradingSymbol": "LLOYDSENGG",
         "interval": "30minute"
     },
-    "RELIANCE INDUSTRIES LTD": {
+    "RELIANCE": {
         "name": "RELIANCE INDUSTRIES LTD",
         "instrumentKey": "NSE_EQ|INE002A01018",
         "tradingSymbol": "RELIANCE",

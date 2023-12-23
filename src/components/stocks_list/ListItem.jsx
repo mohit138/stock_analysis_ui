@@ -9,7 +9,7 @@ const ListItem = ({
 }) => {
     return (
         <div className="w-full bg-white p-2 rounded my-2 grid grid-cols-8 md:grid-cols-12 xl:text-lg border border-gray-300 ">
-            <Link className="flex items-center justify-around " to={stock.instrumentKey}>
+            <Link className="flex items-center justify-around " to={stock.tradingSymbol}>
                 <img className="h-7 xl:h-8 p-[0.2rem] border border-gray-100 hover:border-teal-300 cursor-pointer ease-in-out duration-200" src="/assets/candle.png" />
             </Link>
             <div className="hidden pl-4 pr-8 col-span-2 md:flex items-center">{stock.tradingSymbol}</div>
