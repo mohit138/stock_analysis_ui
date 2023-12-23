@@ -11,7 +11,7 @@ describe('testing stock lists', () => {
 
     const contextValue = {
         stockList: {
-            "name": {
+            "tading symbol": {
                 name: "name",
                 tradingSymbol: "tading symbol",
                 instrumentKey: "key",

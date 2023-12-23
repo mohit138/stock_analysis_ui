@@ -25,7 +25,7 @@ const router = createBrowserRouter(
           element={<StocksList />}
         />
         <Route
-          path=":script"
+          path=":tradingSymbol"
           element={<Script />}
         />
       </Route>
@@ -39,7 +39,7 @@ const Root = () => {
 
   useEffect(() => {
     fetch(
-      'stockList.json',
+      `${window.location.origin}/stockList.json`,
       {
         headers: {
           'Content-Type': 'application/json',

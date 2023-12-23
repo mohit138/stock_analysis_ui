@@ -25,10 +25,10 @@ const StocksList = () => {
     } = useStocksList();
 
     const listItems = Object.keys(stockList).map((
-        name
+        tradingSymbol
     ) => {
         return (
-            <ListItem key={name} stock={stockList[name]} handleEditModalOpen={handleEditModalOpen} handleRemoveStock={handleRemoveStock} />
+            <ListItem key={tradingSymbol} stock={stockList[tradingSymbol]} handleEditModalOpen={handleEditModalOpen} handleRemoveStock={handleRemoveStock} />
         );
     })
 
