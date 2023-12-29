@@ -4,6 +4,7 @@ import { StockListContext } from "../../contexts/StockListContext";
 import dayjs from "dayjs";
 import { durationMapping } from "../../constants/constants";
 import StockInfo from "./StockInfo";
+import CandleStickComponent from "./CandleStickChart";
 
 const Script = () => {
     let { tradingSymbol } = useParams();
@@ -38,7 +39,9 @@ const Script = () => {
             {selectedStock &&
                 <div className="p-4 md:p-8 lg:p-10">
                     <StockInfo selectedStock={selectedStock}/>
-                    <div>{JSON.stringify(candleData)}</div>
+                    <div className="h-[70vh]">
+                        <CandleStickComponent data={candleData}/>
+                    </div>
                 </div>
             }
 
