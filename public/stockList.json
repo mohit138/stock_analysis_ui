@@ -1,10 +1,4 @@
 {
-    "AARTIPHARM": {
-        "name": "AARTI PHARMALABS LIMITED",
-        "instrumentKey": "NSE_EQ|INE0LRU01027",
-        "tradingSymbol": "AARTIPHARM",
-        "interval": "30minute"
-    },
     "TCS": {
         "name": "TATA CONSULTANCY SERV LT",
         "instrumentKey": "NSE_EQ|INE467B01029",
@@ -15,12 +9,6 @@
         "name": "ASIAN PAINTS LIMITED",
         "instrumentKey": "NSE_EQ|INE021A01026",
         "tradingSymbol": "ASIANPAINT",
-        "interval": "30minute"
-    },
-    "LLOYDSENGG": {
-        "name": "LLOYDS ENGG WORK LIMITED",
-        "instrumentKey": "NSE_EQ|INE093R01011",
-        "tradingSymbol": "LLOYDSENGG",
         "interval": "30minute"
     },
     "RELIANCE": {
