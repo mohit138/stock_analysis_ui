@@ -78,7 +78,6 @@ const CandleStickComponent = (props) => {
         }
 
         return (filteredCandleData);
-
     }
 
     useEffect(

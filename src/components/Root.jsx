@@ -38,17 +38,27 @@ const Root = () => {
   const { stockListContextAction: { addStocks } } = useContext(StockListContext);
 
   useEffect(() => {
-    fetch(
-      `${window.location.origin}/stockList.json`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(data => addStocks(data))
-      .catch(error => console.error(error));
+    // TODO: remove local storage usage after BE integration
+    if (window.localStorage.getItem("stockList") === null) {
+      fetch(
+        `${window.location.origin}/stockList.json`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          window.localStorage.setItem("stockList",JSON.stringify(data));
+          addStocks(data);
+        })
+        .catch(error => console.error(error));
+    } else{
+      let data = window.localStorage.getItem("stockList");
+      addStocks(JSON.parse(data));
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

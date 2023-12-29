@@ -9,6 +9,13 @@ export const stockListReducer = (state, action) => {
             };
         }
         case ADD_STOCK: {
+            // TODO: remove local storage usage after BE integration 
+            const localStorageStocks = JSON.parse(window.localStorage.getItem("stockList"));
+            let updatedLocalStorageStocks = {
+                ...localStorageStocks,
+                [action.data.tradingSymbol]: action.data
+            };
+            window.localStorage.setItem("stockList", JSON.stringify(updatedLocalStorageStocks));
             return {
                 ...state,
                 [action.data.tradingSymbol]: action.data
@@ -16,7 +23,9 @@ export const stockListReducer = (state, action) => {
         }
         case REMOVE_STOCK: {
             // eslint-disable-next-line no-unused-vars
-            const { [action.data.tradingSymbol]: deletedStock , ...newState} = state;
+            const { [action.data.tradingSymbol]: deletedStock, ...newState } = state;
+            // TODO: remove local storage usage after BE integration
+            window.localStorage.setItem("stockList", JSON.stringify(newState));
             return newState;
         }
         default:
