@@ -70,7 +70,7 @@ const AddStockModal = ({ handleModalToggle, handleAddStock }) => {
         <div className="absolute left-[15%] top-[20%] z-10 w-[70%] h-[60%] p-4 bg-white border-2 border-teal-600 sm:w-8/12 ease-in-out duration-500">
             <div className="flex flex-col items-start justify-around h-full">
                 <div className="flex flex-col items-start w-full">
-                    <div className="py-4">Please search for the Stock</div>
+                    <div className="py-4 text-lg">Please search for the Stock</div>
                     <Input value={searchInput} onChange={(e) => searchHandler(e.target.value)}/>
                     {isResultsVisible && <div className="h-40 w-full rounded-md border-gray-400 overflow-auto">
                         <List stock={searchResult} selectStockHandler={selectStockHandler}/>
